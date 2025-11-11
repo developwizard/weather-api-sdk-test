@@ -77,7 +77,25 @@ Arguments:
 --`polling` – periodically updates all stored cities
 
 You can test the SDK locally by providing your OpenWeather API key and a city name as command-line arguments.
+## Error Handling
 
+All SDK methods throw exceptions when something goes wrong. You **must** handle them in your code.
+
+### Exceptions
+
+- **`ApiKeyException`**  
+  Thrown when the provided API key is invalid, missing, or unauthorized.  
+  Example: wrong key, expired key, or access denied by OpenWeather API.
+
+- **`CityNotFoundException`**  
+  Thrown when the specified city cannot be found by the OpenWeather API.  
+  Example: misspelled city name or non-existent location.
+
+- **`SdkException`**  
+  General exception for SDK-related issues, including:
+    - Network errors
+    - Unexpected API responses
+    - Temporary API failures after retries
 ### Example Code
 
 ```java
